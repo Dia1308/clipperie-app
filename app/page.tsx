@@ -1,65 +1,65 @@
-import Image from "next/image";
+const LIEN_PAIEMENT = "https://buy.stripe.com/test_dRmfZi1lL0Vh1l21dpc7u00";
 
-export default function Home() {
+const css = `
+  body{margin:0;background:#0d0d0d;color:#f4f1ea;font-family:system-ui,sans-serif}
+  main{max-width:560px;margin:0 auto;padding:32px 20px 64px}
+  .tag{color:#ffd60a;font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+  h1{font-size:40px;line-height:1.05;letter-spacing:-.03em;margin:12px 0 16px;font-weight:900}
+  h1 span{color:#ffd60a}
+  p{line-height:1.5;color:#c9c6bf}
+  .btn{display:block;text-align:center;background:#ffd60a;color:#0d0d0d;font-weight:800;font-size:18px;padding:18px;border-radius:12px;text-decoration:none;margin:24px 0 8px}
+  .small{font-size:13px;text-align:center}
+  h2{font-size:24px;letter-spacing:-.02em;margin:48px 0 12px}
+  .step{border-left:3px solid #ffd60a;padding:4px 0 4px 14px;margin:14px 0}
+  .step b{color:#f4f1ea}
+  details{border-top:1px solid #2a2a2a;padding:14px 0}
+  summary{font-weight:700;cursor:pointer}
+  footer{margin-top:48px;font-size:12px;color:#8a877f}
+`;
+
+export default function Page() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main>
+      <style>{css}</style>
+      <div className="tag">Accès anticipé</div>
+      <h1>
+        Ton live de 2 h devient <span>30 clips verticaux</span>.
+      </h1>
+      <p>
+        Dépose ton podcast, ton stream ou ta formation. Clipperie repère les
+        moments forts, découpe en 30 à 60 secondes et ajoute les sous-titres.
+      </p>
+      <a className="btn" href={LIEN_PAIEMENT}>
+        Réserver mon accès, 49 €/mois
+      </a>
+      <p className="small">60 clips par mois. Paiement sécurisé par Stripe.</p>
+
+      <h2>Comment ça marche</h2>
+      <div className="step"><b>1. Tu déposes</b> ta vidéo ou son lien.</div>
+      <div className="step"><b>2. Clipperie découpe</b> les meilleurs moments en format vertical.</div>
+      <div className="step"><b>3. Tu exportes</b> tout le lot, sous-titres et titres inclus.</div>
+
+      <h2>Questions fréquentes</h2>
+      <details>
+        <summary>Pour qui ?</summary>
+        <p>Podcasteurs, streamers et formateurs qui publient déjà du format long.</p>
+      </details>
+      <details>
+        <summary>Combien ça coûte ?</summary>
+        <p>49 € par mois pour 60 clips.</p>
+      </details>
+      <details>
+        <summary>Quand je reçois mon accès ?</summary>
+        <p>Après le paiement, je t'envoie ton accès par email.</p>
+      </details>
+      <details>
+        <summary>Je peux arrêter quand je veux ?</summary>
+        <p>Oui, l'abonnement se résilie à tout moment.</p>
+      </details>
+
+      <footer>Mentions légales, CGV et confidentialité : à venir.</footer>
+    </main>
   );
 }
+          
+              
